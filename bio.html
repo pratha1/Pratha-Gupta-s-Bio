@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Bio</title>
+    <link rel = "stylesheet" href="bio.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+IN+Guides&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrap_1">
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#volunteering">Volunteering</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main id="home">
+            <h1>Pratha</h1>
+            <img src="fl.png" alt="" aria-hidden="true">
+            <img src="5.jpg" alt="Photograph of Pratha Gupta smiling">
+            <img src="fl.png" alt="" aria-hidden="true">
+            <p>I'm taking accessible computing because I believe technology should work for 
+            everyone, regardless of their abilities. I'm particularly interested in 
+            learning about screen reader optimization and how proper semantic HTML can 
+            improve the user experience for people with impairments. For our team 
+            project, I'd love to work on auditing and improving real-world websites to 
+            make them WCAG compliant.</p>
+            <p> You can view my : <a href="https://docs.google.com/document/d/1SNjmDnuLTz1WozqWKpLUPQV8bIbgGnQTN4j71v64_7Q/edit?tab=t.0#heading=h.9z8gd4gexawh">WeWALK Smart Cane 2</a></p>
+            <p>Other Bios: <a href="https://docs.google.com/document/d/10nTEkUx4IVWT_oC9CfM5BCgIWGQVcWJRhelf6fSZpuw/edit?tab=t.0">Web Page Bio Links</a></p>
+
+            <img src="pop.jpg" alt="Illustration representing accessible computing and inclusive technology" class="accessibility-img">
+        </main>
+        <div class="border"></div>
+    </div>
+    <div class="wrap_2" id="volunteering">
+        <div class="box_1">
+            <h1>Volunteering</h1>
+            <div class="content">
+                <ul>
+                    <li>Taught high school-level science, math, and English to children who had little or no access to formal schooling. </li>
+                    <li>Beyond academics, I focused on simplifying complex concepts, sparking curiosity, and building a supportive learning environment that encouraged students to think critically, develop problem-solving skills, and engage actively with their education.</li>
+                </ul>
+                <img src="1.png" alt="volunteering">
+            </div>
+        </div>   
+        <div class="box_2">
+            <div class="content">
+                <ul>
+                    <li>Mentored and tutored underprivileged students, offering academic support, guidance, and motivation to help them overcome learning gaps. </li>
+                    <li>Through personalized teaching and interactive sessions, I aimed to nurture their confidence, develop essential life skills, and create meaningful educational experiences that empowered them to grow both academically and personally.</li>
+                </ul>
+                <img src="2.png" alt="volunteering">
+            </div>
+        </div> 
+        <div class="box_3">
+            <div class="content">
+                <ul>
+                    <li> Worked with a support foundation under the guidance of Dr. Srivastava, where I helped children with disabilities develop communication skills and better engage with their surroundings. </li>
+                    <li> By encouraging self-expression and creating inclusive interactions, I supported their ability to connect with others, adapt to daily environments, and discover new ways of learning.</li>
+                </ul>
+                <img src="3.png" alt="volunteering">
+            </div>
+        </div>
+        
+    </div>
+    <div class="wrap_3" id="contact">
+        <div class="box">
+            <h1>Contact</h1>
+            <p>Email: <a href="mailto:pratha05@tamu.edu">pratha05@tamu.edu</a></p>
+            
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Subject:</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                
+                <button type="submit">Send Message</button>
+            </form>
+            
+            <div id="formMessage" class="hidden"></div>
+        </div>
+    </div>
+    
+    <script>
+        // Contact Form JavaScript
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Create mailto link with form data
+            const mailtoLink = `mailto:pratha05@tamu.edu?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+                'Name: ' + name + '\n' +
+                'Email: ' + email + '\n\n' +
+                'Message:\n' + message
+            )}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            const messageDiv = document.getElementById('formMessage');
+            messageDiv.classList.remove('hidden');
+            messageDiv.classList.add('success-message');
+            messageDiv.textContent = 'Opening your email client... If it doesn\'t open automatically, please email pratha05@tamu.edu directly.';
+            
+            // Reset form
+            setTimeout(function() {
+                document.getElementById('contactForm').reset();
+                messageDiv.classList.add('hidden');
+                messageDiv.classList.remove('success-message');
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
